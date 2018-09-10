@@ -56,8 +56,6 @@ object types {
   // Prove that `A * 1` is equivalent to `A` by implementing the following two
   // functions.
   //
-  def to1[A](t: (A, Unit)): A = ???
-  def from1[A](a: A): (A, Unit) = ???
 
   //
   // EXERCISE 7
@@ -90,16 +88,6 @@ object types {
   }
 
   def from2[A](a: A): Either[A, Nothing] = Left(a)
-
-
-  //
-  // EXERCISE 8
-  //
-  // Prove that `A + 0` is equivalent to `A` by implementing the following two
-  // functions.
-  //
-  def to2[A](t: Either[A, Nothing]): A = ???
-  def from2[A](a: A): Either[A, Nothing] = ???
 
   //
   // EXERCISE 9
@@ -850,6 +838,7 @@ object typeclasses {
       sort1(lessThan) ++ List(x) ++ sort1(notLessThan)
   }
 
+  // TODO HOME
   def sort2[A: Ord](l: List[A]): List[A] = ???
 
   //
