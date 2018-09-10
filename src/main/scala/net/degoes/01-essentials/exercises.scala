@@ -2,6 +2,7 @@
 
 package net.degoes.essentials
 
+import scala.reflect.ClassTag
 import scala.util.Try
 
 object types {
@@ -227,9 +228,9 @@ object functions {
   //
   def arrayUpdate1[A](arr: Array[A], i: Int, f: A => A): Unit =
     arr.updated(i, f(arr(i)))
-  // TODO HOME
-  def arrayUpdate2[A](arr: Array[A], i: Int, f: A => A): Option[Array[A]] = if(arr.length >= i) Option.empty
-    else Option(arr)
+  def arrayUpdate2[A: ClassTag](arr: Array[A], i: Int, f: A => A): Option[Array[A]] =
+    if(arr.length >= i) Option.empty
+    else Try(arr.take(i) ++ Array[A](f(arr(i))) ++ arr.drop(i)).toOption
 
   //
   // EXERCISE 3
@@ -260,8 +261,7 @@ object functions {
   //
   import java.time.LocalDateTime
   def afterOneHour1: LocalDateTime = LocalDateTime.now.plusHours(1)
-  //TODO HOME
-  //def afterOneHour2(time: LocalDateTime): LocalDateTime = LocalDateTime.from(LocalDateTime).plusHours(1)
+  def afterOneHour2(time: LocalDateTime): LocalDateTime = LocalDateTime.of(time.toLocalDate, time.toLocalTime).plusHours(1)
 
   //
   // EXERCISE 6
