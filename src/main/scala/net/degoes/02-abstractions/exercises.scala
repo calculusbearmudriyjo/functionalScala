@@ -4,7 +4,7 @@ package net.degoes.abstractions
 
 import scalaz._
 import Scalaz._
-import net.degoes.essentials.types.Employees
+//import net.degoes.essentials.types.Employees
 
 object algebra {
 
@@ -267,14 +267,14 @@ object functor {
   //
   // Define `Applicative` for `Option`.
   //
-  implicit val OptionApplicative: Applicative[Option] =
-    new Applicative[Option] {
-      def point[A](a: => A): Option[A] = Some(a)
-      def ap[A, B](fa: => Option[A])(f: => Option[A => B]): Option[B] = fa match {
-        case None => None
-        case Some(e) => f(e)
-      }
-    }
+//  implicit val OptionApplicative: Applicative[Option] =
+//    new Applicative[Option] {
+//      def point[A](a: => A): Option[A] = Some(a)
+//      def ap[A, B](fa: => Option[A])(f: => Option[A => B]): Option[B] = fa match {
+//        case None => None
+//        case Some(e) => f(e)
+//      }
+//    }
 
   //
   // EXERCISE 9
@@ -376,12 +376,12 @@ object foldable {
   //
   // Try to define an instance of `Foldable` for `A => ?`.
   //
-  implicit def FunctionFoldable[A]: Foldable[A => ?] = new Foldable[A => ?] {
-    def foldMap[A, B](fa: A => A)(f: A => B)(implicit F: Monoid[B]): B =
-      mzero[B]
-    def foldRight[A, B](fa: A => A, z: => B)(f: (A, B) => B): B =
-      z
-  }
+//  implicit def FunctionFoldable[A]: Foldable[A => ?] = new Foldable[A => ?] {
+//    def foldMap[A, B](fa: A => A)(f: A => B)(implicit F: Monoid[B]): B =
+//      mzero[B]
+//    def foldRight[A, B](fa: A => A, z: => B)(f: (A, B) => B): B =
+//      z
+//  }
 
   //
   // EXERCISE 3
