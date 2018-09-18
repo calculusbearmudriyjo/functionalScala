@@ -50,7 +50,17 @@ libraryDependencies ++= Seq(
   "org.scalaz"      %% "scalaz-zio"         % ZIOVersion,
   "org.scalaz"      %% "scalaz-zio-interop" % ZIOVersion,
   // Ammonite
-  "com.lihaoyi"     %  "ammonite"           % "1.1.2"   % "test" cross CrossVersion.full
+  "com.lihaoyi"     %  "ammonite"           % "1.1.2"   % "test" cross CrossVersion.full,
+
+  // Start with this one
+  "org.tpolecat" %% "doobie-core"      % "0.5.3",
+
+  // And add any of these as needed
+  "io.chrisdavenport" %% "fuuid-circe"  % "0.1.2",
+  "mysql" % "mysql-connector-java" % "5.1.24",
+  "org.tpolecat" %% "doobie-hikari"    % "0.5.3", // HikariCP transactor.
+  "org.tpolecat" %% "doobie-specs2"    % "0.5.3", // Specs2 support for typechecking statements.
+  "org.tpolecat" %% "doobie-scalatest" % "0.5.3"  // ScalaTest support for typechecking statements.
 )
 
 resolvers ++= Seq(

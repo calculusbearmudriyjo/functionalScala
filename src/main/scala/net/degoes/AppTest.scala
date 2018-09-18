@@ -40,7 +40,7 @@ object AppTest extends scalaz.zio.App {
     resT <- transaction {
         for {
             _ <- console.putStrLn("test ")
-            b2 <- adjust(account2, -200)
+            b2 <- adjust(account2, -400)
             _ <- console.putStrLn(s"acc2: ${b2.value}")
             b1 <- adjust(account1, 400)
             _ <- console.putStrLn(s"acc1: ${b1.value}, acc2: ${b2.value}")

@@ -36,7 +36,6 @@ object HigherOrderAbstractSyntax {
       copy(value = value - name)
   }
 
-  import scalaz.zio._
 
   // Look how in this program, 'i is defined in let, but than becomes a real
   // scala variable in the places where you want to use it.
